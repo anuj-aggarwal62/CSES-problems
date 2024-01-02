@@ -37,9 +37,9 @@ signed main() {
     vi coins(n);
     input(coins);
 
-    vi dp(x+1,1e9);
+    vi dp(x+1,0);
 
-    dp[0] = 0;
+    dp[0] = 1;
 
     for(int sum=0;sum<=x;sum++)
     {
@@ -49,12 +49,13 @@ signed main() {
 
             if(sum - coins[idx] >= 0)
             {
-                ans = min(ans,1 + dp[sum-coins[idx]]);
+                ans += dp[sum-coins[idx]];
+                ans %= mod;
             }
         }
     }
 
-    int ans = dp[x]>=1e9? -1 : dp[x];
+    int ans = dp[x];
     cout<<ans<<endl;
 
     
