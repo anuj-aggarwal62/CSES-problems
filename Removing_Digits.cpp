@@ -24,6 +24,21 @@ using namespace std;
 #define mod 1000000007
 void input(vi &v) {for(int i=0;i<(int)v.size();i++) cin>>v[i];}
 
+int helper(int n)
+{
+    int mx = 0;
+
+    while(n)
+    {
+        int digit = n%10;
+        n /= 10;
+
+        mx = max(mx,digit);
+    }
+
+    return mx;
+}
+
 signed main() {
 
     ios_base::sync_with_stdio(false);
@@ -31,32 +46,18 @@ signed main() {
     cout.tie(NULL);
 
 
-    int n,x;
-    cin>>n>>x;
+    int n;
+    cin>>n;
 
-    vi coins(n);
-    input(coins);
+    int ans = 0;
+    
 
-    vi dp(x+1,0);
-
-    dp[0] = 1;
-
-    for(int idx=0;idx<n;idx++)
+    while(n)
     {
-        for(int sum=0;sum<=x;sum++)
-        {
-            int &ans = dp[sum];
-
-            if(sum - coins[idx] >= 0)
-            {
-                ans += dp[sum-coins[idx]];
-                ans %= mod;
-            }
-        }
+        n -= helper(n);
+        ans++;
     }
 
-    int ans = dp[x];
     cout<<ans<<endl;
-
-    
+   
 }
