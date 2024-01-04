@@ -1,5 +1,17 @@
 {
     "files.associations": {
-        "deque": "cpp"
+        "deque": "cpp",
+        "ostream": "cpp",
+        "algorithm": "cpp",
+        "bitset": "cpp",
+        "iterator": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "random": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
     }
 }
